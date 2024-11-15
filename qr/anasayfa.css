@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #d3d3d3; /* Arka plan rengi gri */
+    background-image: url(''); /* Arka plan resmi */
+    background-size: auto; /* Resmin orijinal boyutunu kullan */
+    background-position: center; /* Resmi ortalar */
+    background-repeat: no-repeat; /* Resmin tekrar etmesini engeller */
+    overflow: hidden;
+}
+
+
+
+/* Üç Çizgi Menüsü */
+.menu-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-button div {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+/* Logo ve Yazı Alanı */
+.header-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30%; /* Ekranın ortasına yakın */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease;
+}
+
+.logo {
+    margin-right: 20px;
+    position: relative;
+    opacity: 0; /* Başlangıçta logo görünmez olacak */
+    transform: translateX(100%); /* Logo sağda gizlenecek */
+    animation: logoMove 2s forwards; /* Logo hareket animasyonu */
+}
+
+@keyframes logoMove {
+    0% {
+        transform: translateX(100%); /* Başlangıçta sağda */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* Logo sola kayacak */
+        opacity: 1;
+    }
+}
+
+.logo img {
+    width: 200px; /* Logoyu küçült */
+    height: auto;
+}
+
+/* Hoş Geldiniz Mesajı */
+.welcome-message {
+    font-size: 80px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    line-height: 1.5; /* Satırlar arası mesafe */
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Hafif şeffaf beyaz zemin */
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 1s ease, top 1s ease;
+    max-width: 60%; /* Yazı genişliğinin taşmasını engeller */
+    margin-left: 20px; /* Yazı ile logo arasında boşluk */
+    animation: textMove 2s forwards; /* Yazı hareket animasyonu */
+}
+
+@keyframes textMove {
+    0% {
+        opacity: 0;
+        transform: translateX(50px); /* Yazı başlangıçta sağda olacak */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Yazı sola kayacak */
+    }
+}
+
+.welcome-message.visible {
+    opacity: 1;
+}
+
+/* Alt Menü Butonu */
+.footer-menu {
+    position: absolute;
+    bottom: 20px; /* En alt */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.footer-menu button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.footer-menu button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) { /* Tablet ve daha küçük ekranlar için */
+    .header-content {
+        flex-direction: column; /* Tablet ve telefonlarda logo ve yazıyı alt alta yerleştir */
+    }
+
+    .logo img {
+        width: 100px; /* Logoyu biraz daha küçült */
+    }
+
+    .welcome-message {
+        font-size: 18px; /* Yazı boyutunu küçült */
+        top: 60%; /* Daha iyi yerleşim */
+    }
+
+    .footer-menu button {
+        font-size: 14px;
+        padding: 8px 16px; /* Daha kompakt bir buton */
+    }
+}
+
+@media (max-width: 480px) { /* Telefon ekranları için */
+    .logo img {
+        width: 80px; /* Logoyu daha da küçült */
+    }
+
+    .welcome-message {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .footer-menu button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}

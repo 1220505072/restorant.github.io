@@ -1,0 +1,17 @@
+/* Geri Dön Simgesi */
+.back-button {
+    position: fixed;  /* Sabit konumda kalmasını sağlar */
+    top: 20px;        /* Üstten 20px mesafe */
+    left: 20px;       /* Soldan 20px mesafe */
+    font-size: 1.2rem; /* Yazı büyüklüğü */
+    color: #333;      /* Yazı rengi */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    background-color: transparent; /* Arkaplan rengi */
+    padding: 10px;    /* İçerideki yazıya boşluk ekler */
+    cursor: pointer; /* Fare simgesini işaretçi yapar */
+}
+
+/* Hover efekti */
+.back-button:hover {
+    color: #007BFF; /* Hover durumunda yazı rengi değişir */
+}
